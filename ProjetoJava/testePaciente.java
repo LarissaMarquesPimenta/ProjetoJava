@@ -11,7 +11,6 @@ public class testePaciente {
 		Scanner leia = new Scanner(System.in); 
 		
 		List<Paciente> pacientes = new ArrayList<>();
-	
 		
 		while(true) {
 			
@@ -32,6 +31,7 @@ public class testePaciente {
 					}
 				else {
 					for(Paciente loop:pacientes) {
+						System.out.println((pacientes.indexOf(loop) + 1) + "° paciente");
 						loop.visualizar(); }
 				}	
 				break;
@@ -45,7 +45,7 @@ public class testePaciente {
 				break;
 				
 			case 5: 
-				//Excluir cadastro
+				//Pesquisar paciente
 				break;
 				
 			case 6: 
