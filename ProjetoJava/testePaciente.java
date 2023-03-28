@@ -40,8 +40,18 @@ public class testePaciente {
 				//Atualizar cadastro
 				break;
 				
-			case 4: 
-				//Excluir dados
+			case 4:
+				leia.nextLine();
+				System.out.println("\nDigite o paciente que deseja remover: ");
+				String paciente = leia.nextLine();
+				if(pacientes.contains(paciente)) {
+					pacientes.remove(paciente);
+					
+				}else {
+					System.out.println("\nEste paciente não existe!");
+				}
+				System.out.println("\nPacientes no cadrastro: ");
+				System.out.println(paciente);
 				break;
 				
 			case 5: 
