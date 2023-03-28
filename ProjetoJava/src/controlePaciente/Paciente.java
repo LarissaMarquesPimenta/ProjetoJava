@@ -1,7 +1,7 @@
-package projetoJava;
+package controleMedico;
 
 public class Paciente {
-	
+
 	private String nome; 
 	private String tipoSanguineo;
 	private String genero; 
@@ -65,9 +65,4 @@ public class Paciente {
 		
 		
 	}
-		
-	}
-	
-	
-	
-
+}
