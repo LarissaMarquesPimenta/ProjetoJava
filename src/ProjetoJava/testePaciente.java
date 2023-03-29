@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import projeto.util.Cores;
+
 public class testePaciente {
 
 	public static void main(String[] args) { 
@@ -16,7 +18,23 @@ public class testePaciente {
 		
 		while(repeticao == true) {
 			
-			// Menu
+			System.out.println(Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "=====================================================");
+			System.out.println("                                                     ");
+			System.out.println("                CONTROLE DE PACIENTES                ");
+			System.out.println("                                                     ");
+			System.out.println("=====================================================");
+			System.out.println("                                                     ");
+			System.out.println("            1 - Cadastro de Novo Paciente            ");
+			System.out.println("            2 - Exibir lista de Pacientes            ");
+			System.out.println("            3 - Editar dados do Paciente             ");
+			System.out.println("            4 - Apagar dados do Paciente             ");
+			System.out.println("            5 - Buscar Paciente                      ");
+			System.out.println("            6 - Calcular IMC                         ");
+			System.out.println("            0 - Sair                                 ");
+			System.out.println("                                                     ");
+			System.out.println("=====================================================");
+			System.out.println("Entre com a opção desejada:                          ");
+			System.out.println("                                                     "+ Cores.TEXT_RESET);
 			
 			System.out.println("Escolha uma opção.");
 			opcao = leia.nextInt();
@@ -27,7 +45,7 @@ public class testePaciente {
 				boolean loop = true;
 				int op;
 				while(loop == true) {
-					System.out.println("Para continuar escreva o nome do paciente ou sair para finalizar o programa.");
+					System.out.println("Nome do paciente: ");
 					String nome = leia.next();
 					System.out.println("Qual tipo sanguineo?");
 					String tipoSanguineo = leia.next();
@@ -72,7 +90,7 @@ public class testePaciente {
 				break;
 				
 			case 4: 
-				leia.nextLine();
+				
 				System.out.println("\nDigite o paciente que deseja remover: ");
 				int index = leia.nextInt();
 				if(index < pacientes.size()) {
@@ -89,7 +107,13 @@ public class testePaciente {
 				//Pesquisar paciente
 				break;
 				
-			case 6: // larissa
+			case 6:
+				System.out.println("\nDe qual paciente deseja ver o imc: ");
+				int indice = leia.nextInt();
+				System.out.println("O IMC do paciente é: " + getImc(indice));
+				
+				
+			case 0: // larissa
 				System.out.println("Volte sempre!");
 				repeticao = false;
 				break;
@@ -102,6 +126,11 @@ public class testePaciente {
 		
 		
 
+	}
+
+	private static String getImc(int indice) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
