@@ -27,7 +27,8 @@ public class testePaciente {
 				//cadastrar paciente 
 				continue;
 				
-			case 2:
+			case 2: //larissa 
+				
 				if (pacientes.isEmpty()){
 					System.out.println("A lista está vazia.");
 					}
@@ -50,7 +51,7 @@ public class testePaciente {
 				//Pesquisar paciente
 				continue;
 				
-			case 6: 
+			case 6: // larissa
 				System.out.println("Volte sempre!");
 				repeticao = false;
 				break;
