@@ -108,9 +108,9 @@ public class testePaciente {
 				break;
 				
 			case 6:
+				
 				System.out.println("\nDe qual paciente deseja ver o imc: ");
 				int indice = leia.nextInt();
-				System.out.println("O IMC do paciente é: " + getImc(indice));
 				
 				
 			case 0: // larissa

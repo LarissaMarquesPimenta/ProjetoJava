@@ -67,14 +67,12 @@ public class Paciente {
 		System.out.println("Peso: " + peso);
 		
 	}
-	public double calcular() {
+	public double calcular(int indice) {
 
         double imc = peso / (altura * altura);
-
         return imc;
    }
    public double getImc() {
-	   double imc = peso / (altura * altura);
        return imc;
    }
    public void setImc(double imc) {
