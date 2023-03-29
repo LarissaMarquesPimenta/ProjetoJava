@@ -25,7 +25,7 @@ public class testePaciente {
 			
 			case 1: 
 				//cadastrar paciente 
-				continue;
+				break;
 				
 			case 2: //larissa 
 				
@@ -37,11 +37,11 @@ public class testePaciente {
 						System.out.println((pacientes.indexOf(loop) + 1) + "° paciente");
 						loop.visualizar(); }
 				}	
-				continue;
+				break;
 			
 			case 3: 
 				//Atualizar cadastro
-				continue;
+				break;
 				
 			case 4: 
 				//Excluir dados
@@ -49,7 +49,7 @@ public class testePaciente {
 				
 			case 5: 
 				//Pesquisar paciente
-				continue;
+				break;
 				
 			case 6: // larissa
 				System.out.println("Volte sempre!");
