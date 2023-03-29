@@ -1,4 +1,4 @@
-package projetoJava;
+package ProjetoJava;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +8,13 @@ public class testePaciente {
 
 	public static void main(String[] args) { 
 		int opcao; 
+		boolean repeticao = true;
 		Scanner leia = new Scanner(System.in); 
 		
 		List<Paciente> pacientes = new ArrayList<>();
 		
-		while(true) {
+		
+		while(repeticao == true) {
 			
 			// Menu
 			
@@ -23,7 +25,7 @@ public class testePaciente {
 			
 			case 1: 
 				//cadastrar paciente 
-				break;
+				continue;
 				
 			case 2:
 				if (pacientes.isEmpty()){
@@ -34,11 +36,11 @@ public class testePaciente {
 						System.out.println((pacientes.indexOf(loop) + 1) + "° paciente");
 						loop.visualizar(); }
 				}	
-				break;
+				continue;
 			
 			case 3: 
 				//Atualizar cadastro
-				break;
+				continue;
 				
 			case 4: 
 				//Excluir dados
@@ -46,10 +48,11 @@ public class testePaciente {
 				
 			case 5: 
 				//Pesquisar paciente
-				break;
+				continue;
 				
 			case 6: 
-				//Sair
+				System.out.println("Volte sempre!");
+				repeticao = false;
 				break;
 				
 			}

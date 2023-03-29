@@ -1,4 +1,4 @@
-package projetoJava;
+package ProjetoJava;
 
 public class Paciente {
 	
