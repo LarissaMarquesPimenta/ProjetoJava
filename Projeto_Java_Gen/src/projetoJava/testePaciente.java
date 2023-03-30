@@ -1,16 +1,19 @@
 package projetoJava;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import controle.util.cores;
 import projetoJava.Paciente.resultado;
 
+
 public class testePaciente {
 
 	public static void main(String[] args) {
 		int opcao;
 		Scanner leia = new Scanner(System.in);
+		double altura = 0, peso = 0;
 
 		List<Paciente> pacientes = new ArrayList<>();
 
@@ -42,9 +45,9 @@ public class testePaciente {
 						cores.TEXT_GREEN + cores.ANSI_BLACK_BACKGROUND + "\nObrigado por utilizar nosso programa!");
 				leia.close();
 				System.exit(0);
-				
-			}	
-			
+
+			}
+
 			switch (opcao) {
 
 			case 1:
@@ -62,14 +65,16 @@ public class testePaciente {
 						System.out.println("Qual a idade do paciente?");
 						int idade = leia.nextInt();
 						System.out.println("Qual o peso do paciente?");
-						double peso = leia.nextDouble();
+						peso = leia.nextDouble();
 						System.out.println("Qual a altura do paciente?");
-						double altura = leia.nextDouble();
+						altura = leia.nextDouble();
 						pacientes.add(new Paciente(nome, tipoSanguineo, genero, idade, peso, altura, id));
 						id++;
 					}
 				} while (!nome.equalsIgnoreCase("sair"));
-				pacientes.forEach(paciente -> paciente.visualizar());
+//				pacientes.forEach(paciente -> paciente.visualizar());
+				
+				
 				break;
 
 			case 2:
@@ -81,63 +86,70 @@ public class testePaciente {
 						loop.visualizar();
 					}
 				}
+				Paciente.limpaTela();
+				
 				break;
 
-		
-				// Atualizar cadastro
-			case 3: 
+			// Atualizar cadastro
+			case 3:
 				System.out.println("Deseje o indice que deseja editar: ");
 				int indice1 = leia.nextInt();
 				indice1 = indice1 - 1;
-				if(indice1 > pacientes.size()) {
+				if (indice1 > pacientes.size()) {
 					System.out.println("\nO paciente não existe!");
-				}
-				else if (pacientes.size() > indice1) {
+				} else if (pacientes.size() > indice1) {
 					System.out.println("O que deseja editar? ");
 					System.out.println("1. Nome \n2. Idade \n3. genero \n4. Peso \n5. Altura \n6. Tipo sanguineo  ");
-					int op1 = leia.nextInt(); 
-					switch(op1) {
-					
-					case 1: 
+					int op1 = leia.nextInt();
+
+					switch (op1) {
+
+					case 1:
 						System.out.println("Novo nome: ");
 						String novoNome = leia.next();
 						pacientes.get(indice1).setNome(novoNome);
+						Paciente.limpaTela();
 						
 						break;
 					case 2:
 						System.out.println("Nova idade: ");
-						String novaIdade = leia.next();
-						pacientes.get(indice1).setNome(novaIdade);
-				
-						break; 
+						int novaIdade = leia.nextInt();
+						pacientes.get(indice1).setIdade(novaIdade);
+						Paciente.limpaTela();
+						
+						break;
 					case 3:
-						System.out.println("Novo genero: ");
+						System.out.println("Novo gênero: ");
 						String novoGenero = leia.next();
-						pacientes.get(indice1).setNome(novoGenero);
+						pacientes.get(indice1).setGenero(novoGenero);
+						Paciente.limpaTela();
 						
-						break; 
-					case 4: 
+						break;
+					case 4:
 						System.out.println("Novo peso: ");
-						String novoPeso = leia.next();
-						pacientes.get(indice1).setNome(novoPeso);
+						double novoPeso = leia.nextDouble();
+						pacientes.get(indice1).setPeso(novoPeso);
+						Paciente.limpaTela();
 						
-						break; 
-					case 5: 
+						break;
+					case 5:
 						System.out.println("Nova altura: ");
-						String novaAltura = leia.next();
-						pacientes.get(indice1).setNome(novaAltura);
+						double novaAltura = leia.nextDouble();
+						pacientes.get(indice1).setAltura(novaAltura);
+						Paciente.limpaTela();
 						
-						break; 
-					case 6: 
+						break;
+					case 6:
 						System.out.println("Novo tipo sanguineo: ");
 						String novoTipoSanguineo = leia.next();
-						pacientes.get(indice1).setNome(novoTipoSanguineo);
+						pacientes.get(indice1).setTipoSanguineo(novoTipoSanguineo);
+						Paciente.limpaTela();
 						
-						break; 
-						
-							
+						break;
+
 					}
 				}
+				Paciente.limpaTela();
 				
 				break;
 
@@ -152,12 +164,15 @@ public class testePaciente {
 						pacientes.remove(i);
 						encontrado = true;
 						System.out.println("Paciente " + nomeExcluir + " removido com sucesso.");
+						Paciente.limpaTela();
 						break;
 					}
 				}
 				if (!encontrado) {
 					System.out.println("Paciente " + nomeExcluir + " não encontrado.");
 				}
+				Paciente.limpaTela();
+				
 				break;
 
 			case 5:
@@ -174,28 +189,44 @@ public class testePaciente {
 					}
 					if (!Encontrado) {
 						System.out.println("Paciente " + buscarNome + " não foi encontrado: ");
+						Paciente.limpaTela();
+						
 						break;
 
 					}
 
 				}
-
+				Paciente.limpaTela();
+				
 				break;
 
 			case 6:
 				// Calcular IMC
-				String imc;
 
-				System.out.println(resultado.visualizar);
+				double imc = peso / (altura * altura);
 
-				break;
+				System.out.printf("Seu IMC é %.2f\n", imc);
+
+				if (imc < 18.5) {
+					System.out.println("O paciente está abaixo do peso.");
+				} else if (imc >= 18.5 && imc < 25) {
+					System.out.println("O paciente está com o peso normal.");
+				} else if (imc >= 25 && imc < 30) {
+					System.out.println("O paciente está acima do peso.");
+				} else if (imc >= 30 && imc < 35) {
+					System.out.println("O paciente está com obesidade grau 1.");
+				} else if (imc >= 35 && imc < 40) {
+					System.out.println("O paciente está com obesidade grau 2.");
+				} else {
+					System.out.println("O paciente está com obesidade grau 3.");
+				}
 
 			default:
 				System.out.println("Opção inválida tente novamente!");
 			}
-
+			Paciente.limpaTela();
 		}
 
 	}
-
+	
 }

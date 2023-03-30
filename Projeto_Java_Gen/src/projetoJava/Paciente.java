@@ -1,5 +1,7 @@
 package projetoJava;
 
+import java.io.IOException;
+
 public class Paciente {
 
 	private String nome;
@@ -89,10 +91,11 @@ public class Paciente {
 
 			return "Seu IMC é: " + imc;
 		}
-		/*
-		 * public double getImc() { return imc; } public void setImc(double imc) {
-		 * this.imc = imc; }
-		 */
-
+		
 	}
+public static void limpaTela() {
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+    
+	    }
 }
