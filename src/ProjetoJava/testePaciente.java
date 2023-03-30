@@ -1,6 +1,7 @@
 package ProjetoJava;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,41 +38,94 @@ public class testePaciente {
 			System.out.println("                                                     "+ Cores.TEXT_RESET);
 			
 			System.out.println("Escolha uma opção.");
-			opcao = leia.nextInt();
+
+			while(true) {		
+				try {
+					opcao = leia.nextInt();
+					break; 
+					
+				} catch(InputMismatchException e) {
+					System.out.println("valor invalido, tente novamente com uma das opções do menu: ");
+					leia.nextLine();
+			}
+				}
 			
 			switch(opcao) {
 			
 			case 1:
 				boolean loop = true;
 				int op;
-				while(loop == true) {
-					System.out.println("Nome do paciente: ");
-					String nome = leia.next();
-					System.out.println("Qual tipo sanguineo?");
-					String tipoSanguineo = leia.next();
-					System.out.println("Qual o sexo?");
-					String genero = leia.next();
-					System.out.println("Qual a idade do paciente?");
-					int idade = leia.nextInt();
-					System.out.println("Qual o peso do paciente?");
-					double peso = leia.nextDouble();
-					System.out.println("Qual a altura do paciente?");
-					double altura = leia.nextDouble();
-					pacientes.add(new Paciente(nome, tipoSanguineo, genero, idade, peso, altura));
-					System.out.println("Deseja adicionar outro paciente? ");
-					System.out.println("[1] Sim \n[2] Não");
-					op = leia.nextInt();
-					if (op == 1) {
-						loop = true;
+				while (loop == true) {
+
+				    System.out.println("Nome do paciente: ");
+				    String nome = leia.next();
+				    System.out.println("Qual tipo sanguineo?");
+				    String tipoSanguineo = leia.next();
+				    System.out.println("Qual o sexo?");
+				    String genero = leia.next();
+
+				    int idade;
+				    while (true) {
+				        try {
+				            System.out.println("Qual a idade do paciente?");
+				            idade = leia.nextInt();
+				            break; // sai do loop 
+				        } catch (InputMismatchException e) {
+				            System.out.println("Valor inválido: digite um número inteiro!");
+				            leia.nextLine(); // limpa o scanner 
+				        }
+				    }
+
+				    double peso;
+				    while (true) {
+				        try {
+				            System.out.println("Qual o peso do paciente?");
+				            peso = leia.nextDouble();
+				            break; 
+				        } catch (InputMismatchException e) {
+				            System.out.println("Valor inválido: digite um valor numérico!");
+				            leia.nextLine(); 
+				        }
+				    }
+
+				    double altura;
+				    while (true) {
+				        try {
+				            System.out.println("Qual a altura do paciente?");
+				            altura = leia.nextDouble();
+				            break; 
+				        } catch (InputMismatchException e) {
+				            System.out.println("Valor inválido: digite um valor numérico!");
+				            leia.nextLine(); 
+				        }
+				    }
+				    pacientes.add(new Paciente(nome, tipoSanguineo, genero, idade, peso, altura));
+			        System.out.println("Paciente adicionado com sucesso!");
+
+				    System.out.println("Deseja adicionar outro paciente? ");
+				    System.out.println("[1] Sim \n[2] Não");
+				    
+				    while(true) {		
+						try {
+							op = leia.nextInt();
+							break; 
+							
+						} catch(InputMismatchException e) {
+							System.out.println("valor invalido, tente novamente com uma das opções do menu: ");
+							leia.nextLine();
 					}
-					else if (op == 2) {
-						loop = false;
-					}
-					else {
-						System.out.println("Opção invalida! Digite novamente.");
-						op = leia.nextInt();						
-					} }
-				break;
+						}
+
+				    if (op == 1) {
+				        loop = true;
+				    } else if (op == 2) {
+				        loop = false;
+				    } else {
+				        System.out.println("Opção invalida! Digite novamente.");
+				        op = leia.nextInt();
+				    }
+				}
+
 				
 			case 2: //larissa 
 				
@@ -87,15 +141,31 @@ public class testePaciente {
 			
 			case 3: 
 				System.out.println("Deseje o indice que deseja editar: ");
-				int indice1 = leia.nextInt();
+				
+				int indice1;
+				
+				while(true) {		
+					try {
+						indice1 = leia.nextInt();
+						break; 
+					} catch(InputMismatchException e) {
+						System.out.println("valor invalido, tente novamente: ");
+						leia.nextLine();
+						continue;
+				}
+					}
+				
 				indice1 = indice1 - 1;
-				if(indice1 > pacientes.size() && indice1 < 1) {
+
+				if(indice1 > pacientes.size() || pacientes.isEmpty()) {
 					System.out.println("\nO paciente não existe!");
 				}
 				else if (pacientes.size() > indice1) {
 					System.out.println("O que deseja editar? ");
 					System.out.println("1. Nome \n2. Idade \n3. genero \n4. Peso \n5. Altura \n6. Tipo sanguineo  ");
-					int op1 = leia.nextInt(); 
+					
+					int op1 = leia.nextInt();
+					
 					switch(op1) {
 					
 					case 1: 
@@ -117,14 +187,33 @@ public class testePaciente {
 						
 						break; 
 					case 4: 
-						System.out.println("Novo peso: ");
-						int novoPeso = leia.nextInt();
+						int novoPeso;
+					    while (true) {
+					        try {
+					        	System.out.println("Novo peso: ");
+					        	novoPeso = leia.nextInt();
+					            break; 
+					        } catch (InputMismatchException e) {
+					            System.out.println("Valor inválido: digite um valor numérico!");
+					            leia.nextLine(); 
+					        }
+					    }
 						pacientes.get(indice1).setPeso(novoPeso);
-						
 						break; 
 					case 5: 
-						System.out.println("Nova altura: ");
-						int novaAltura = leia.nextInt();
+						
+						int novaAltura;
+					    while (true) {
+					        try {
+					        	System.out.println("Nova altura: ");
+					        	novaAltura = leia.nextInt();
+					            break; 
+					        } catch (InputMismatchException e) {
+					            System.out.println("Valor inválido: digite um valor numérico!");
+					            leia.nextLine(); 
+					        }
+					    }
+						
 						pacientes.get(indice1).setAltura(novaAltura);
 						
 						break; 
@@ -133,9 +222,7 @@ public class testePaciente {
 						String novoTipoSanguineo = leia.next();
 						pacientes.get(indice1).setTipoSanguineo(novoTipoSanguineo);
 						
-						break; 
-						
-							
+						break; 	
 					}
 				}
 				
@@ -144,6 +231,9 @@ public class testePaciente {
 			case 4: 
 				
 				System.out.println("\nDigite o indice do paciente que deseja remover: ");
+				
+
+
 				int index = leia.nextInt();
 				index = index - 1;
 				if(index < pacientes.size()) {
@@ -185,6 +275,9 @@ public class testePaciente {
 				System.out.println("\nVolte sempre!");
 				repeticao = false;
 				break;
+				default: 
+					System.out.println("Valor invalido, tente uma das opções do menu.");
+					break;
 				
 			}
 			
@@ -197,6 +290,6 @@ public class testePaciente {
 	}
 
 	}
-	
+
 
 
