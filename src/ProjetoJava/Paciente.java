@@ -1,4 +1,6 @@
-package projetoJava;
+//larissa
+
+package ProjetoJava;
 
 public class Paciente {
 	
@@ -8,6 +10,7 @@ public class Paciente {
 	private int idade; 
 	private double peso; 
 	private double altura;
+	private double imc;
 	
 	public Paciente(String nome, String tipoSanguineo, String genero, int idade, double peso, double altura) {
 		super();
@@ -63,10 +66,20 @@ public class Paciente {
 		System.out.println("Altura: " + altura);
 		System.out.println("Peso: " + peso);
 		
+	}
+	public double calcular(int indice) {
+
+        double imc = peso / (altura * altura);
+        return imc;
+   }
+   public double getImc() {
+       return imc;
+   }
+   public void setImc(double imc) {
+       this.imc = imc;
 		
 	}
-		
-	}
+   }
 	
 	
 	
