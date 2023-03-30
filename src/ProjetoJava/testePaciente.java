@@ -89,7 +89,7 @@ public class testePaciente {
 				System.out.println("Deseje o indice que deseja editar: ");
 				int indice1 = leia.nextInt();
 				indice1 = indice1 - 1;
-				if(indice1 > pacientes.size()) {
+				if(indice1 > pacientes.size() && indice1 < 1) {
 					System.out.println("\nO paciente não existe!");
 				}
 				else if (pacientes.size() > indice1) {
@@ -106,32 +106,32 @@ public class testePaciente {
 						break;
 					case 2:
 						System.out.println("Nova idade: ");
-						String novaIdade = leia.next();
-						pacientes.get(indice1).setNome(novaIdade);
+						int novaIdade = leia.nextInt();
+						pacientes.get(indice1).setIdade(novaIdade);
 				
 						break; 
 					case 3:
 						System.out.println("Novo genero: ");
 						String novoGenero = leia.next();
-						pacientes.get(indice1).setNome(novoGenero);
+						pacientes.get(indice1).setGenero(novoGenero);
 						
 						break; 
 					case 4: 
 						System.out.println("Novo peso: ");
-						String novoPeso = leia.next();
-						pacientes.get(indice1).setNome(novoPeso);
+						int novoPeso = leia.nextInt();
+						pacientes.get(indice1).setPeso(novoPeso);
 						
 						break; 
 					case 5: 
 						System.out.println("Nova altura: ");
-						String novaAltura = leia.next();
-						pacientes.get(indice1).setNome(novaAltura);
+						int novaAltura = leia.nextInt();
+						pacientes.get(indice1).setAltura(novaAltura);
 						
 						break; 
 					case 6: 
 						System.out.println("Novo tipo sanguineo: ");
 						String novoTipoSanguineo = leia.next();
-						pacientes.get(indice1).setNome(novoTipoSanguineo);
+						pacientes.get(indice1).setTipoSanguineo(novoTipoSanguineo);
 						
 						break; 
 						
@@ -164,7 +164,7 @@ public class testePaciente {
 				//imc
 				
 			case 0: // larissa
-				System.out.println("Volte sempre!");
+				System.out.println("\nVolte sempre!");
 				repeticao = false;
 				break;
 				
