@@ -88,7 +88,8 @@ public class testePaciente {
 			case 3: 
 				System.out.println("Deseje o indice que deseja editar: ");
 				int indice1 = leia.nextInt();
-				if(indice1 >= pacientes.size()) {
+				indice1 = indice1 - 1;
+				if(indice1 > pacientes.size()) {
 					System.out.println("\nO paciente não existe!");
 				}
 				else if (pacientes.size() > indice1) {
@@ -105,22 +106,32 @@ public class testePaciente {
 						break;
 					case 2:
 						System.out.println("Nova idade: ");
-						
+						String novaIdade = leia.next();
+						pacientes.get(indice1).setNome(novaIdade);
+				
 						break; 
 					case 3:
 						System.out.println("Novo genero: ");
+						String novoGenero = leia.next();
+						pacientes.get(indice1).setNome(novoGenero);
 						
 						break; 
 					case 4: 
 						System.out.println("Novo peso: ");
+						String novoPeso = leia.next();
+						pacientes.get(indice1).setNome(novoPeso);
 						
 						break; 
 					case 5: 
 						System.out.println("Nova altura: ");
+						String novaAltura = leia.next();
+						pacientes.get(indice1).setNome(novaAltura);
 						
 						break; 
 					case 6: 
 						System.out.println("Novo tipo sanguineo: ");
+						String novoTipoSanguineo = leia.next();
+						pacientes.get(indice1).setNome(novoTipoSanguineo);
 						
 						break; 
 						
@@ -132,8 +143,9 @@ public class testePaciente {
 				
 			case 4: 
 				
-				System.out.println("\nDigite o paciente que deseja remover: ");
+				System.out.println("\nDigite o indice do paciente que deseja remover: ");
 				int index = leia.nextInt();
+				index = index - 1;
 				if(index < pacientes.size()) {
 					pacientes.remove(index);	
 				}
@@ -149,10 +161,7 @@ public class testePaciente {
 				break;
 				
 			case 6:
-				
-				System.out.println("\nDe qual paciente deseja ver o imc: ");
-				int indice = leia.nextInt();
-				
+				//imc
 				
 			case 0: // larissa
 				System.out.println("Volte sempre!");
