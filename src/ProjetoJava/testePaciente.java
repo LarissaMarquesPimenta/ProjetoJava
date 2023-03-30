@@ -86,7 +86,48 @@ public class testePaciente {
 				break;
 			
 			case 3: 
-				//Atualizar cadastro
+				System.out.println("Deseje o indice que deseja editar: ");
+				int indice1 = leia.nextInt();
+				if(indice1 >= pacientes.size()) {
+					System.out.println("\nO paciente não existe!");
+				}
+				else if (pacientes.size() > indice1) {
+					System.out.println("O que deseja editar? ");
+					System.out.println("1. Nome \n2. Idade \n3. genero \n4. Peso \n5. Altura \n6. Tipo sanguineo  ");
+					int op1 = leia.nextInt(); 
+					switch(op1) {
+					
+					case 1: 
+						System.out.println("Novo nome: ");
+						String novoNome = leia.next();
+						pacientes.get(indice1).setNome(novoNome);
+						
+						break;
+					case 2:
+						System.out.println("Nova idade: ");
+						
+						break; 
+					case 3:
+						System.out.println("Novo genero: ");
+						
+						break; 
+					case 4: 
+						System.out.println("Novo peso: ");
+						
+						break; 
+					case 5: 
+						System.out.println("Nova altura: ");
+						
+						break; 
+					case 6: 
+						System.out.println("Novo tipo sanguineo: ");
+						
+						break; 
+						
+							
+					}
+				}
+				
 				break;
 				
 			case 4: 
@@ -96,7 +137,7 @@ public class testePaciente {
 				if(index < pacientes.size()) {
 					pacientes.remove(index);	
 				}
-				else if (pacientes.size() < index) {
+				else if (pacientes.size() <= index) {
 					System.out.println("\nEste paciente não existe!");
 				}
 				System.out.println("\nPacientes no cadrastro: ");
@@ -128,9 +169,7 @@ public class testePaciente {
 
 	}
 
-	private static String getImc(int indice) {
-		// TODO Auto-generated method stub
-		return null;
 	}
+	
 
-}
+
