@@ -76,7 +76,7 @@ public class testePaciente {
 			case 2: //larissa 
 				
 				if (pacientes.isEmpty()){
-					System.out.println("A lista está vazia.");
+					System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "A lista está vazia.");
 					}
 				else {
 					for(Paciente i:pacientes) {
@@ -157,7 +157,25 @@ public class testePaciente {
 				break;
 				
 			case 5: 
-				//Pesquisar paciente
+				// Buscar paciente
+				System.out.println("\nDigite o nome do paciente que desejar encontar: ");
+				String buscarNome = leia.next();
+				boolean Encontrado = false;
+				for (int i = 0; i < pacientes.size(); i++) {
+					Paciente paciente = pacientes.get(i);
+					if (paciente.getNome().equalsIgnoreCase(buscarNome)) {
+						System.out.println("\nPaciente encontrado: ");
+						paciente.visualizar();
+						Encontrado = true;
+					}
+					if (!Encontrado) {
+						System.out.println("Paciente " + buscarNome + " não foi encontrado: ");
+						break;
+
+					}
+
+				}
+
 				break;
 				
 			case 6:
