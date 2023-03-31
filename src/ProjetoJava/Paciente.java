@@ -2,8 +2,6 @@
 
 package ProjetoJava;
 
-import java.util.Arrays;
-
 public class Paciente {
 	
 	private String nome; 

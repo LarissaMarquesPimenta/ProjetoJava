@@ -131,7 +131,7 @@ public class testePaciente {
 				    }
 				}
 
-				
+				break;
 			case 2: //larissa 
 				
 				if (pacientes.isEmpty()){
