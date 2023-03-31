@@ -21,25 +21,25 @@ public class testePaciente {
 		
 		while(repeticao == true) {
 			
-			System.out.println(Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "=====================================================");
-			System.out.println("                                                     ");
-			System.out.println("                CONTROLE DE PACIENTES                ");
-			System.out.println("                                                     ");
-			System.out.println("=====================================================");
-			System.out.println("                                                     ");
-			System.out.println("            1 - Cadastro de Novo Paciente            ");
-			System.out.println("            2 - Exibir lista de Pacientes            ");
-			System.out.println("            3 - Editar dados do Paciente             ");
-			System.out.println("            4 - Apagar dados do Paciente             ");
-			System.out.println("            5 - Buscar Paciente                      ");
-			System.out.println("            6 - Calcular IMC                         ");
-			System.out.println("            0 - Sair                                 ");
-			System.out.println("                                                     ");
-			System.out.println("=====================================================");
-			System.out.println("Entre com a opção desejada:                          ");
-			System.out.println("                                                     "+ Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "========================================================");
+			System.out.println("                                                        ");
+			System.out.println("                CONTROLE DE PACIENTES                   ");
+			System.out.println("                                                        ");
+			System.out.println("========================================================");
+			System.out.println("                                                        ");
+			System.out.println("              1 - Cadastro de Novo Paciente             ");
+			System.out.println("              2 - Exibir lista de Pacientes             ");
+			System.out.println("              3 - Editar dados do Paciente              ");
+			System.out.println("              4 - Apagar dados do Paciente              ");
+			System.out.println("              5 - Buscar Paciente                       ");
+			System.out.println("              6 - Calcular IMC                          ");
+			System.out.println("              0 - Sair                                  ");
+			System.out.println("                                                        ");
+			System.out.println("========================================================");
+			System.out.println("Entre com a opção desejada ou digite 0 para sair:       ");
+			System.out.println("                                                        "/*+ Cores.TEXT_RESET*/);
 			
-			System.out.println("Escolha uma opção ou digite 0 para sair.");
+			
 
 			while(true) {		
 				try {
@@ -47,10 +47,16 @@ public class testePaciente {
 					break; 
 					
 				} catch(InputMismatchException e) {
-					System.out.println("valor invalido, tente novamente com uma das opções do menu: ");
+					System.out.println(Cores.TEXT_RED_BOLD_BRIGHT +Cores.ANSI_BLACK_BACKGROUND+"valor invalido, tente novamente com uma das opções do menu: " + Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 					leia.nextLine();
 			}
 				}
+			
+			if (opcao == 0) {
+				System.out.println(
+						Cores.TEXT_GREEN_BRIGHT+ Cores.ANSI_BLACK_BACKGROUND + "\nObrigado por utilizar nosso programa!");
+				leia.close();
+				System.exit(0);}
 			
 			switch(opcao) {
 			
@@ -72,7 +78,7 @@ public class testePaciente {
 				            idade = leia.nextInt();
 				            break; // sai do loop 
 				        } catch (InputMismatchException e) {
-				            System.out.println("Valor inválido: digite um número inteiro!");
+				        	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!" + Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 				            leia.nextLine(); // limpa o scanner 
 				        }
 				    }
@@ -82,7 +88,7 @@ public class testePaciente {
 				            peso = leia.nextDouble();
 				            break; 
 				        } catch (InputMismatchException e) {
-				            System.out.println("Valor inválido: digite um valor numérico!");
+				        	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!"+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 				            leia.nextLine(); 
 				        }
 				    }
@@ -94,7 +100,7 @@ public class testePaciente {
 				            altura = leia.nextDouble();
 				            break; 
 				        } catch (InputMismatchException e) {
-				            System.out.println("Valor inválido: digite um valor numérico!");
+				        	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!"+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 				            leia.nextLine(); 
 				        }
 				    }
@@ -110,7 +116,7 @@ public class testePaciente {
 							break; 
 							
 						} catch(InputMismatchException e) {
-							System.out.println("valor invalido, tente novamente com uma das opções do menu: ");
+							System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: escolha uma opção do menu!"+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 							leia.nextLine();
 					}
 						}
@@ -120,7 +126,7 @@ public class testePaciente {
 				    } else if (op == 2) {
 				        loop = false;
 				    } else {
-				        System.out.println("Opção invalida! Digite novamente.");
+				    	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: escolha uma opção do menu!"+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 				        op = leia.nextInt();
 				    }
 				}
@@ -129,7 +135,7 @@ public class testePaciente {
 			case 2: //larissa 
 				
 				if (pacientes.isEmpty()){
-					System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "A lista está vazia.");
+					System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "A lista está vazia.                                     "+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 					}
 				else {
 					for(Paciente i:pacientes) {
@@ -149,7 +155,7 @@ public class testePaciente {
 						indice1 = leia.nextInt();
 						break; 
 					} catch(InputMismatchException e) {
-						System.out.println("valor invalido, tente novamente: ");
+						System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!"+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 						leia.nextLine();
 						continue;
 				}
@@ -161,7 +167,7 @@ public class testePaciente {
 					System.out.println("\nO paciente não existe!");
 				}
 				else if (pacientes.size() > indice1) {
-					System.out.println("O que deseja editar? ");
+					System.out.println("O que deseja editar?        ");
 					System.out.println("1. Nome \n2. Idade \n3. genero \n4. Peso \n5. Altura \n6. Tipo sanguineo  ");
 					
 					int op1 = leia.nextInt();
@@ -194,7 +200,7 @@ public class testePaciente {
 					        	novoPeso = leia.nextInt();
 					            break; 
 					        } catch (InputMismatchException e) {
-					            System.out.println("Valor inválido: digite um valor numérico!");
+					        	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!"+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 					            leia.nextLine(); 
 					        }
 					    }
@@ -209,7 +215,7 @@ public class testePaciente {
 					        	novaAltura = leia.nextInt();
 					            break; 
 					        } catch (InputMismatchException e) {
-					            System.out.println("Valor inválido: digite um valor numérico!");
+					        	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!" + Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 					            leia.nextLine(); 
 					        }
 					    }
@@ -261,7 +267,6 @@ public class testePaciente {
 						break;
 
 					}
-
 				}
 
 				break;
@@ -277,7 +282,7 @@ public class testePaciente {
 	
 			            break; 
 			        } catch (InputMismatchException e) {
-			            System.out.println("Valor inválido: digite um valor numérico!");
+			        	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!"+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 			            leia.nextLine(); 
 			        }}
 				iPaciente = iPaciente - 1;
@@ -295,20 +300,15 @@ public class testePaciente {
 				repeticao = false;
 				break;
 				default: 
-					System.out.println("Valor invalido, tente uma das opções do menu.");
+					System.out.println("Valor invalido, tente uma das opções do menu."+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
 					break;
 				
 			}
 			
 			
-			
 		}
 		
-		
 
 	}
 
 	}
-
-
-
