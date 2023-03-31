@@ -2,6 +2,8 @@
 
 package ProjetoJava;
 
+import java.util.Arrays;
+
 public class Paciente {
 	
 	private String nome; 
@@ -65,6 +67,7 @@ public class Paciente {
 		System.out.println("Tipo sanguineo: " + tipoSanguineo);
 		System.out.println("Altura: " + altura);
 		System.out.println("Peso: " + peso);
+		System.out.println();
 		
 	}
 	public double calcular(int indice) {
@@ -76,10 +79,42 @@ public class Paciente {
        return imc;
    }
    public void setImc(double imc) {
-       this.imc = imc;
-		
+       this.imc = imc;}
+		  
+   
+       public static boolean validarDados(String tipoSanguineo, String genero, int idade, double peso, double altura) {
+    	    boolean verificarDados = true;
+
+    	    if (!Arrays.asList("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-").contains(tipoSanguineo)) {
+    	        System.out.println("Tipo sanguíneo inválido. Por favor, digite um tipo sanguíneo válido (A+, A-, B+, B-, AB+, AB-, O+ ou O-).");
+    	        verificarDados = false;
+    	    }
+
+    	    if (!Arrays.asList("masculino", "feminino").contains(genero)) {
+    	        System.out.println("Gênero inválido. Por favor, digite um gênero válido (masculino ou feminino).");
+    	        verificarDados = false;
+    	    }
+
+    	    if (idade < 0 || idade > 150) {
+    	        System.out.println("Idade inválida. Por favor, digite uma idade válida (entre 0 e 150).");
+    	        verificarDados = false;
+    	    }
+
+    	    if (peso < 0 || peso > 500) {
+    	        System.out.println("Peso inválido. Por favor, digite um peso válido (entre 0 e 500).");
+    	        verificarDados = false;
+    	    }
+
+    	    if (altura < 0 || altura > 3) {
+    	        System.out.println("Altura inválida. Por favor, digite uma altura válida (entre 0 e 3 metros).");
+    	        verificarDados = false;
+    	    }
+
+    	    return verificarDados; 
+    	}
+
 	}
-   }
+   
 	
 	
 	
