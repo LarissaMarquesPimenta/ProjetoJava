@@ -12,8 +12,6 @@ public class Paciente {
 	private int idade; 
 	private double peso; 
 	private double altura;
-	private double imc;
-	
 	public Paciente(String nome, String tipoSanguineo, String genero, int idade, double peso, double altura) {
 		super();
 		this.nome = nome;
@@ -70,51 +68,38 @@ public class Paciente {
 		System.out.println();
 		
 	}
-	public double calcular(int indice) {
-
-        double imc = peso / (altura * altura);
-        return imc;
-   }
-   public double getImc() {
-       return imc;
-   }
-   public void setImc(double imc) {
-       this.imc = imc;}
+	
 		  
-   
-       public static boolean validarDados(String tipoSanguineo, String genero, int idade, double peso, double altura) {
-    	    boolean verificarDados = true;
 
-    	    if (!Arrays.asList("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-").contains(tipoSanguineo)) {
-    	        System.out.println("Tipo sanguíneo inválido. Por favor, digite um tipo sanguíneo válido (A+, A-, B+, B-, AB+, AB-, O+ ou O-).");
-    	        verificarDados = false;
-    	    }
+	public double calcularImc (int iPaciente) {
+		
+		// Calcular IMC
 
-    	    if (!Arrays.asList("masculino", "feminino").contains(genero)) {
-    	        System.out.println("Gênero inválido. Por favor, digite um gênero válido (masculino ou feminino).");
-    	        verificarDados = false;
-    	    }
+		
+		double imc = peso / (altura * altura);
 
-    	    if (idade < 0 || idade > 150) {
-    	        System.out.println("Idade inválida. Por favor, digite uma idade válida (entre 0 e 150).");
-    	        verificarDados = false;
-    	    }
+		System.out.printf("Seu IMC é %.2f\n", imc);
 
-    	    if (peso < 0 || peso > 500) {
-    	        System.out.println("Peso inválido. Por favor, digite um peso válido (entre 0 e 500).");
-    	        verificarDados = false;
-    	    }
-
-    	    if (altura < 0 || altura > 3) {
-    	        System.out.println("Altura inválida. Por favor, digite uma altura válida (entre 0 e 3 metros).");
-    	        verificarDados = false;
-    	    }
-
-    	    return verificarDados; 
-    	}
-
+		if (imc < 18.5) {
+			System.out.println("O paciente está abaixo do peso.");
+		} else if (imc >= 18.5 && imc < 25) {
+			System.out.println("O paciente está com o peso normal.");
+		} else if (imc >= 25 && imc < 30) {
+			System.out.println("O paciente está acima do peso.");
+		} else if (imc >= 30 && imc < 35) {
+			System.out.println("O paciente está com obesidade grau 1.");
+		} else if (imc >= 35 && imc < 40) {
+			System.out.println("O paciente está com obesidade grau 2.");
+		} else {
+			System.out.println("O paciente está com obesidade grau 3.");
+		}
+		return imc; 
 	}
-   
+	
+}
+
+	
+	
 	
 	
 	

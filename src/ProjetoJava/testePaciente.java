@@ -12,6 +12,8 @@ public class testePaciente {
 	public static void main(String[] args) { 
 		int opcao; 
 		boolean repeticao = true;
+		int idade;
+		double peso, altura;
 		Scanner leia = new Scanner(System.in); 
 		
 		List<Paciente> pacientes = new ArrayList<>();
@@ -37,7 +39,7 @@ public class testePaciente {
 			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("                                                     "+ Cores.TEXT_RESET);
 			
-			System.out.println("Escolha uma opção.");
+			System.out.println("Escolha uma opção ou digite 0 para sair.");
 
 			while(true) {		
 				try {
@@ -64,7 +66,6 @@ public class testePaciente {
 				    System.out.println("Qual o sexo?");
 				    String genero = leia.next();
 
-				    int idade;
 				    while (true) {
 				        try {
 				            System.out.println("Qual a idade do paciente?");
@@ -75,8 +76,6 @@ public class testePaciente {
 				            leia.nextLine(); // limpa o scanner 
 				        }
 				    }
-
-				    double peso;
 				    while (true) {
 				        try {
 				            System.out.println("Qual o peso do paciente?");
@@ -88,7 +87,7 @@ public class testePaciente {
 				        }
 				    }
 
-				    double altura;
+				    
 				    while (true) {
 				        try {
 				            System.out.println("Qual a altura do paciente?");
@@ -140,12 +139,13 @@ public class testePaciente {
 				break;
 			
 			case 3: 
-				System.out.println("Deseje o indice que deseja editar: ");
+				
 				
 				int indice1;
 				
 				while(true) {		
 					try {
+						System.out.println("Deseje o indice que deseja editar: ");
 						indice1 = leia.nextInt();
 						break; 
 					} catch(InputMismatchException e) {
@@ -232,8 +232,6 @@ public class testePaciente {
 				
 				System.out.println("\nDigite o indice do paciente que deseja remover: ");
 				
-
-
 				int index = leia.nextInt();
 				index = index - 1;
 				if(index < pacientes.size()) {
@@ -269,8 +267,29 @@ public class testePaciente {
 				break;
 				
 			case 6:
-				//imc
+				// calcular imc
+				int iPaciente;
+				while (true) {
+			        try {
+			        	System.out.println("Indice do paciente: ");
+			        	iPaciente = leia.nextInt();
+			        	//Paciente paciente = pacientes.get(iPaciente - 1 );
+	
+			            break; 
+			        } catch (InputMismatchException e) {
+			            System.out.println("Valor inválido: digite um valor numérico!");
+			            leia.nextLine(); 
+			        }}
+				iPaciente = iPaciente - 1;
+					
+				if(iPaciente > pacientes.size() || pacientes.isEmpty()) {
+					System.out.println("\nO paciente não existe!");
+				}
+				else if (pacientes.size() > iPaciente) {
+					pacientes.get(iPaciente).calcularImc(iPaciente);
 				
+				}
+			break; 
 			case 0: // larissa
 				System.out.println("\nVolte sempre!");
 				repeticao = false;
