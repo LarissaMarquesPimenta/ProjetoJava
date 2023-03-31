@@ -15,6 +15,7 @@ public class testePaciente {
 		int idade;
 		double peso, altura;
 		Scanner leia = new Scanner(System.in); 
+		int indice1; 
 		
 		List<Paciente> pacientes = new ArrayList<>();
 		
@@ -147,8 +148,6 @@ public class testePaciente {
 			case 3: 
 				
 				
-				int indice1;
-				
 				while(true) {		
 					try {
 						System.out.println("Deseje o indice que deseja editar: ");
@@ -247,10 +246,11 @@ public class testePaciente {
 					System.out.println("\nEste paciente não existe!");
 				}
 				System.out.println("\nPacientes no cadrastro: ");
-				System.out.println(index);
+				System.out.println(index + 1);
 				break;
 				
 			case 5: 
+				
 				// Buscar paciente
 				System.out.println("\nDigite o nome do paciente que desejar encontar: ");
 				String buscarNome = leia.next();
@@ -259,16 +259,17 @@ public class testePaciente {
 					Paciente paciente = pacientes.get(i);
 					if (paciente.getNome().equalsIgnoreCase(buscarNome)) {
 						System.out.println("\nPaciente encontrado: ");
+						System.out.println((i+1) + "° paciente: " );
 						paciente.visualizar();
 						Encontrado = true;
 					}
-					if (!Encontrado) {
-						System.out.println("Paciente " + buscarNome + " não foi encontrado: ");
-						break;
-
+					
 					}
+				if (!Encontrado) {
+					System.out.println("Paciente " + buscarNome + " não foi encontrado: ");
+					break;
 				}
-
+				
 				break;
 				
 			case 6:
