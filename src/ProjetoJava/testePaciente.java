@@ -192,11 +192,11 @@ public class testePaciente {
 						
 						break; 
 					case 4: 
-						int novoPeso;
+						double novoPeso;
 					    while (true) {
 					        try {
 					        	System.out.println("Novo peso: ");
-					        	novoPeso = leia.nextInt();
+					        	novoPeso = leia.nextDouble();
 					            break; 
 					        } catch (InputMismatchException e) {
 					        	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!"+ Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
@@ -207,11 +207,11 @@ public class testePaciente {
 						break; 
 					case 5: 
 						
-						int novaAltura;
+						double novaAltura;
 					    while (true) {
 					        try {
 					        	System.out.println("Nova altura: ");
-					        	novaAltura = leia.nextInt();
+					        	novaAltura = leia.nextDouble();
 					            break; 
 					        } catch (InputMismatchException e) {
 					        	System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND+"Valor inválido: digite um valor numérico!" + Cores.TEXT_RESET + Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND);
@@ -245,8 +245,7 @@ public class testePaciente {
 				else if (pacientes.size() <= index) {
 					System.out.println("\nEste paciente não existe!");
 				}
-				System.out.println("\nPacientes no cadrastro: ");
-				System.out.println(index + 1);
+		
 				break;
 				
 			case 5: 
